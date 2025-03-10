@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="users.css">
+</head>
+<body>
+	<h1>EMPLOYEE MANAGEMENT SYSTEM</h1>
+	<a href="/users/add">Add Employee</a>
+	<table border="1">
+
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr th:each="user:${users}">
+				<td th:text="${user.id}"></td>
+				<td th:text="${user.name}"></td>
+				<td th:text="${user.email}"></td>
+				<td><a th:href="@{/users/edituser/{id}(id=${user.id})}">Edit</a>
+					<a th:href="@{/users/delete/{id}(id=${user.id})}">Delete</a></td>
+			</tr>
+		</tbody>
+
+	</table>
+
+
+</body>
+</html>
